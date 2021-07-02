@@ -14,12 +14,17 @@ This code can be found in the 'Data Collection GEE API' Jupyter Notebook.
 (NOTE: This notebook uses the training data from Zindi UmojaHack #3: Hotspots Competition, which is not uploaded on this repository, 
 but it can be found at: https://zindi.africa/hackathons/umojahack-3-hotspots/data )
 
+Exploratory Data Analysis:
+
+We did EDA of some variables that affect burn area. 
+This code can be found in the 'EDA on test data' Jupyter Notebook.
+
 Modeling/Forecasting:
 
 We researched many forecasting models, but ended up using a SARIMA model due to the ease of use and the seasonality of the burn data. 
-This code can be found in the 'Modeling (SARIMA Model) and Forecast' Jupyter notebook.
+This code can be found in the 'Modeling (SARIMA Model) and Forecast' Jupyter notebook. There is also a notepad explaing some of the research process titled 'Forecasting Research'
 
 Forecasting App:
 
-We created a dashboard to visualize the burn area in the DRC over the next 5 years. 
+We created a dashboard using Plotly to visualize the burn area in the DRC over the next 5 years. 
 This code can be found in the 'Forecast Visualization' Jupyter Notebook.
