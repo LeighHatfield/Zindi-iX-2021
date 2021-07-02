@@ -1,0 +1,61 @@
+Links:
+https://www.analyticsvidhya.com/blog/2018/09/multivariate-time-series-guide-forecasting-modeling-python-codes/
+
+https://machinelearningmastery.com/time-series-forecasting-methods-in-python-cheat-sheet/
+
+https://towardsdatascience.com/the-complete-guide-to-time-series-analysis-and-forecasting-70d476bfe775
+
+https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/
+
+https://machinelearningmastery.com/time-series-seasonality-with-python/
+
+https://www.machinelearningplus.com/vector-autoregression-examples-python/
+
+https://www.statsmodels.org/stable/examples/notebooks/generated/statespace_seasonal.html
+
+
+Notes
+-We are going to work with multivariate data, so we need to choose a model that can use multivariate data
+
+-We also know there is obvious seasonality because there are more fires during the dry season than the wet season.
+
+-Need to see if there is a time trend.
+
+-Need to adjust data for seasonality/time trend then add these components back at the end for our model prediction.
+
+-For the Train-Validation split, we should leave out a time frame at the end to compare our data to (possibly leave out the last year?),
+ this will allow us to check the accuracy of out model. Then for the actual final model, we add back the testing split.
+
+-Probably use VAR as our model, but we can play around with other multivariate models.
+
+
+
+ORIGINAL PLAN:
+
+I think we can cluster coordinates by strips of longitude, and create dummy variables based on these clusterings.
+Also, other basic data cleaning stuff.
+
+Then, I need to remove seasonality and trends, and then that means we can apply VAR. 
+(We can remove the last year of the training data to see how accurate our model is).
+
+Then, after we get the model working, we can use the updated GEE API data for our model and re-train it on that new data,
+and check that it works again by leaving out the last year. (How do we get the most recent burn area?- No API is lised on Zindi)
+
+Then, we use this model to create an app that visualizes burn area through 2025.
+
+
+PROBLEMS:
+
+Working with a VAR model is actually quite difficult, and after testing with a SARIMA model I got pretty good results.
+Sadly, SARIMA is univariate, we will lose some really nice data that we could have gotten from GEE.
+
+NEW PLAN: 
+
+We can reduce the amount of areas we want to model over by taking the average burn area over different locations and
+then we can run a SARIMA model on each of these locations.
+
+
+
+
+
+
